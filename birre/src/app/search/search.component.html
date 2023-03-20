@@ -1,7 +1,9 @@
-<p>
-    <input type="text" #newquery>
-    <button (click)="submit(newquery)">Search</button>
-</p>
+<br> <br>
+
+<div class = "container-fluid">
+    <input type="search" #newquery class="form-control rounded">
+    <button (click)="submit(newquery)" class = "btn btn-primary">Search</button>
+</div>
 
 <div *ngFor = "let b of results">
     <a [routerLink]= "['/caratteristiche', b.id]"> <h3>{{b.name}}</h3> </a>
