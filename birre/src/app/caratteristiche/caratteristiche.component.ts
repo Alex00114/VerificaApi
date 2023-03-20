@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BirreService } from '../birre.service';
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-caratteristiche',
@@ -13,7 +14,7 @@ export class CaratteristicheComponent implements OnInit{
   beer: any;
   beerServiceObs!: Observable<any>;
 
-  constructor(private route: ActivatedRoute, private beerService: BirreService) {}
+  constructor(private route: ActivatedRoute, private beerService: BirreService, private location : Location) {}
 
   ngOnInit(): void {
     this.routeObs = this.route.paramMap;
@@ -28,5 +29,9 @@ export class CaratteristicheComponent implements OnInit{
       this.beerServiceObs = this.beerService.getBeer(beerId) ;
       this.beerServiceObs.subscribe((data)=>this.beer = data)
     }
+  }
+
+  back() : void {
+    this.location.back();
   }
 }
