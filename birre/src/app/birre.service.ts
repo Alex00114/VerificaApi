@@ -13,6 +13,11 @@ export class BirreService {
 
     let obsBeers = this.http.get(url);
     return obsBeers;
+  }
 
+  getBeer(id: string) {
+    const url = `https://api.punkapi.com/v2/beers/${id}`;
+    
+    return this.http.get(url);
   }
 }
